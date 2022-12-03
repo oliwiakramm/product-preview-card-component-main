@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Montserrat:wght@500;700&display=swap");
+
+:root {
+  --primary-color: hsl(158, 36%, 37%);
+  --hover-color: hsl(158, 36%, 20%);
+  --secondary-color: hsl(30, 38%, 92%);
+
+  --heading-color: hsl(212, 21%, 14%);
+  --text-color: hsl(228, 12%, 48%);
+  --white-color: hsl(0, 0%, 100%);
+
+  --accent-ff: "Fraunces", serif;
+  --regular-ff: "Montserrat", serif;
+
+  --regular-fw: 500;
+  --bold-fw: 700;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+}
+
+/*** GENERAL STYLES ***/
+
+body {
+  line-height: 1.7;
+  font-family: var(--regular-ff);
+  font-weight: var(--regular-fw);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--secondary-color);
+}
+
+.product {
+  margin: 2rem 1.5rem;
+  display: grid;
+  background-color: var(--white-color);
+  overflow: hidden;
+  border-radius: 0.9rem;
+  max-width: 60rem;
+}
+
+.product__description-container {
+  padding: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.product__type {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: var(--text-color);
+}
+
+.product__name {
+  font-family: var(--accent-ff);
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.product__description {
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+
+.product__prices {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.current__price {
+  font-size: 3rem;
+  font-family: var(--accent-ff);
+  color: var(--primary-color);
+}
+
+.past__price {
+  color: var(--text-color);
+  font-size: 1.4rem;
+}
+
+.button {
+  padding: 1.3rem 2rem;
+  background-color: var(--primary-color);
+  border: 0;
+  border-radius: 0.5rem;
+  color: var(--white-color);
+  font-weight: var(--bold-fw);
+  font-size: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.button::before {
+  content: "";
+  display: inline-block;
+  background: url(images/icon-cart.svg);
+  width: 15px;
+  height: 16px;
+}
+
+.button:hover {
+  background-color: var(--hover-color);
+}
+/* FOR SCREEN READERS */
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media (min-width: 600px) {
+  .product {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product__description-container {
+    padding: 3rem;
+  }
+}
